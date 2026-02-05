@@ -335,13 +335,13 @@
         .section-title {
             margin-bottom: 6px;
             text-transform: uppercase;
-            font-size: 2.4em;
+            font-size: 4em;
             font-weight: 300;
         }
 
         .subsection-title {
             margin-bottom: 3px;
-            font-size: 2em;
+            font-size: 3em;
             font-weight: bold;
             color: #555;
         }
@@ -814,22 +814,22 @@
                 <h2 class="section-title">Contenu</h2>
                 <ul class="bare-list nav">
                     <li class="nav-item">
-                        <h3 class="nav-item-title"><a class="nav-item-title__link" href="#conception">Modèle de
+                        <h3 class="nav-item-title"><a class="nav-item-title__link" href="#ModeleDomain">Modèle de
                                 conception du domaine</a></h3>
                         <ul class="bare-list nav-item-details">
-                            <li class="dash">Diagramme de domaine</li>
-                            <li class="dash">Diagrammes de séquence système</li>
+                            <a class="nav-item-title__link" href="#diagram-domain"><li class="dash">Diagramme de domaine</li></a>
+                            <a class="nav-item-title__link" href="#diagram-seq-domain"><li class="dash">Diagrammes de séquence système</li></a>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <h3 class="nav-item-title"><a class="nav-item-title__link" href="#requirements">Design
+                        <h3 class="nav-item-title"><a class="nav-item-title__link" href="#DesignLogiciel">Design
                                 logiciel</a></h3>
                         <ul class="bare-list nav-item-details">
-                            <li class="dash">Diagramme de classe</li>
-                            <li class="dash">Diagrammes de séquence ou de collaboration</li>
-                            <li class="dash">Diagramme de paquets</li>
-                            <li class="dash">Contraintes OCL</li>
-                            <li class="dash">Justifications</li>
+                            <a class="nav-item-title__link" href="#diagram-class"><li class="dash">Diagramme de classe</li></a>
+                            <a class="nav-item-title__link" href="#diagram-seq"><li class="dash">Diagrammes de séquence ou de collaboration</li></a>
+                            <a class="nav-item-title__link" href="#diagram-package"><li class="dash">Diagramme de paquets</li></a>
+                            <a class="nav-item-title__link" href="#contraintes"><li class="dash">Contraintes OCL</li></a>
+                            <a class="nav-item-title__link" href="#justifications"><li class="dash">Justifications</li></a>
                         </ul>
                     </li>
                 </ul>
@@ -837,7 +837,7 @@
         </aside>
         <div class="report-main">
             <section class="main-section">
-                <h2 id="conception" class="section-title">Modèle de conception du domaine</h2>
+                <h2 id="ModeleDomain" class="section-title">Modèle de conception du domaine</h2>
                 <h3 class="subsection-title" id="diagram-domain">Diagramme de domaine</h3>
                 <div class="activity">
                     <img class="activity-diagram" src="images/DiagramDomain.svg" alt="image">
@@ -925,14 +925,14 @@
                 </div>
 
 
-                <h2 id="conception" class="section-title">Modèle de conception du domaine</h2>
+                <h2 id="DesignLogiciel" class="section-title">Design Logiciel</h2>
 
-                <h3 class="subsection-title" id="diagram-class">Diagrammes de classes</h3>
+                <h3 class="subsection-title" id="diagram-class">Diagramme de classe</h3>
                 <div class="use-case">
                     <img class="use-case-diagram" src="images/ClassDiagram.svg" alt="Diagramme de classes">
                 </div>
 
-                <h3 class="subsection-title" id="diagram-seq">Diagrammes de séquence</h3>
+                <h3 class="subsection-title" id="diagram-seq">Diagrammes de séquence ou de collaboration</h3>
                 <div class="activity">
                     <h4>Création de compte</h4>
                     <img class="activity-diagram" src="images/AccountCreation.svg" alt="image">
@@ -1024,59 +1024,217 @@
 
 
                 <h3 class="subsection-title" id="justifications">Justifications</h3>
+                <h3>Diagramme de Modèle conceptuel du domaine</h3>
+
                 <p>
-                    Nous avons choisi une architecture modulaire basée sur le modèle MVC (Modèle-Vue-Contrôleur). Ce
-                    choix facilite la maintenance et l'évolution de l'application en répartissant clairement les
-                    responsabilités. Voici comment cela fonctionne dans notre <b>Système de Réservation de Voyages</b> :
+                    Pour ce diagramme, nous avons identifié les trois types de voyages principaux (vol, naval, ferroviaire), chacun héritant ainsi de la classe voyage parent car ce sont des types de voyages. (<strong>Trip, Flight, Cruise, Route</strong>)
                 </p>
+
                 <p>
-                    Le choix de l'architecture MVC (Modèle-Vue-Contrôleur) pour l'application MaVille est motivé par la
+                    Chaque voyage contient un véhicule associé, car la création de sections et la configuration de ces dernières dans ces véhicules font partie des fonctionnalités offertes par l’application. (<strong>Plane, Boat, Train, PlaneSection, BoatSection, TrainSection</strong>)
+                </p>
+
+                <p>
+                    Les voyages sont également liés à des emplacements : selon le type de voyage, il peut s’agir d’un simple trajet départ/destination ou d’une série d’emplacements à parcourir. (<strong>Airport, Port, Station</strong>)
+                </p>
+
+                <p>
+                    L’énoncé mentionne des compagnies, que nous avons comprises comme les entités gérant ces voyages. Ces compagnies sont donc reliées à la classe parente Voyage. (<strong>Company</strong>)
+                </p>
+
+                <p>
+                    Enfin, le client se connecte aux voyages pour réserver ou acheter un billet, tandis que l’administrateur du système est lié aux voyages afin de créer, modifier ou supprimer tous les aspects associés : voyages, compagnies, emplacements, sections, etc. (<strong>Client, Admin, Relation Reserve -> Payment</strong>)
+                </p>
+
+                <p>
+                    Ainsi, le modèle reste relativement simple et couvre les principaux cas d’utilisation de l’application : d’un côté la réservation pour les clients, de l’autre le volet administratif qui gère les différentes entités.
+                </p>
+
+
+                <h3>Diagramme de Séquence Système</h3>
+                <p>
+                    Le diagramme de séquence système décrit les principales interactions entre les acteurs (client et administrateur) et le système. Il permet de visualiser les échanges chronologiques entre l’utilisateur et l’application de manière concise, en considérant le système comme une « boîte noire » : l’utilisateur envoie des requêtes et le système retourne des résultats, sans exposer les échanges internes entre les différentes classes.
+                </p>
+
+                <p>
+                    Nous avons identifié 16 scénarios principaux, répartis en trois grandes catégories : gestion de compte, volet administratif et volet client.
+                </p>
+
+                <p>
+                    <strong>Scénarios généraux (gestion de compte) :</strong>
+                </p>
+                <ul>
+                    <li>Se connecter</li>
+                    <li>Se déconnecter</li>
+                    <li>Créer un compte</li>
+                    <li>Modifier un compte</li>
+                    <li>Supprimer un compte</li>
+                </ul>
+
+                <p>
+                    <strong>Volet administratif :</strong>
+                </p>
+                <ul>
+                    <li>Créer une compagnie</li>
+                    <li>Modifier une compagnie</li>
+                    <li>Supprimer une compagnie</li>
+                    <li>Créer un emplacement (gare, port, aéroport)</li>
+                    <li>Modifier un emplacement</li>
+                    <li>Supprimer un emplacement</li>
+                    <li>Créer un voyage</li>
+                    <li>Modifier un voyage</li>
+                    <li>Supprimer un voyage</li>
+                </ul>
+
+                <p>
+                    <strong>Volet client :</strong>
+                </p>
+                <ul>
+                    <li>Réserver un voyage</li>
+                    <li>Effectuer un paiement</li>
+                </ul>
+
+
+                <h3>Diagramme de Classe</h3>
+                <p>
+                    Nous avons choisi une architecture modulaire basée sur le modèle MVC (Modèle-Vue-Contrôleur).
+                    Le choix de l'architecture MVC (Modèle-Vue-Contrôleur) pour l'application de reservation de voyage est motivé par la
                     nécessité de créer une solution modulaire, extensible et facilement maintenable.
                     L'approche MVC sépare les responsabilités principales, ce qui facilite les mises à jour, le test
                     unitaire et l'intégration de nouvelles fonctionnalités.
                     La couche Modèle garantit une gestion efficace des données complexes, la couche Vue permet une
                     personnalisation et une amélioration continue de l'interface utilisateur, et la couche Contrôleur
-                    assure une interaction cohérente entre ces deux aspects.
-                    Ce design est particulièrement adapté pour une application à fort volume d'interactions utilisateur
-                    et nécessitant des mises à jour en temps réel, comme les notifications ou les changements dans les
-                    projets de travaux.
+                    assure une interaction cohérente entre ces deux aspects.Voici comment cela fonctionne dans notre Système de Réservation de Voyages:
                 </p>
                 <ol>
                     <li>
-                        <strong style="color: #555;">Modèle</strong>
+                        <strong style="color: #555;">Vue</strong>
                         <ul>
-                            <li>Le modèle gère les entités principales comme <strong>Resident</strong>,
-                                <strong>RequeteTravail</strong>, et <strong>Horaire</strong>, avec leurs attributs et
-                                méthodes.
-                            </li>
-                            <li><strong>Actuel :</strong> Les données sont gérées en mémoire, via des structures comme
-                                les <strong>ArrayList</strong> dans le contrôleur
-                                <strong>RequeteTravailController</strong>.
-                            </li>
-                            <li><strong>À venir :</strong> Une intégration avec une base de données relationnelle (ex.
-                                PostgreSQL ou MySQL) pourrait être envisagée pour une version future.</li>
+                            <p>
+                                Notre vision de l’aspect Vue concerne toute la partie interface/coté client, chargée de récupérer les inputs de l’utilisateur via des formulaires, des boutons et divers autres éléments interactifs de l’application. Nous avons structuré ce module en quatre classes principales :
+                            </p>
+
+                            <p>
+                                <strong>Menu de login :</strong> inclut un formulaire de connexion et propose également la création d’un compte pour les nouveaux utilisateurs.
+                                <br>
+                                <strong>Menu Client :</strong> cette classe gère tous les affichages accessibles aux clients, tels que la recherche de voyages, la modification du profil, la réservation, et d’autres fonctionnalités liées à leur compte.
+                                <br>
+                                <strong>Menu Admin :</strong> accessible uniquement aux administrateurs, cette classe dispose de nombreuses méthodes pour gérer l’affichage et permettre la création, la modification et la suppression de voyages, de compagnies, de véhicules de transport et d’emplacements de gares, stations ou ports.
+                                <br>
+                                <strong>Menu de paiement :</strong> cette classe s’occupe de gérer l’affichage de la page de paiement pour les réservations, ainsi que l’affichage de la confirmation après la transaction.
+                            </p>
                         </ul>
                     </li>
                     <li>
                         <strong style="color: #555;">Contrôleur</strong>
                         <ul>
-                            <li>Les contrôleurs, comme <strong>RequeteTravailController</strong>, orchestrent les
-                                opérations sur les données et les interactions utilisateur.</li>
-                            <li><strong>Exemples :</strong> Ajouter des requêtes, les filtrer par critères (type, date,
-                                etc.), ou afficher des listes correspondantes.</li>
+                            <p>
+                                Les Contrôleurs servent de liaison entre la Vue et le Modèle : ils reçoivent les actions de l’utilisateur via l’interface (Vue) et traduisent ces inputs en opérations concrètes sur les modèles. Chaque classe contrôleur est définie pour gérer une série d’interactions entre le client et un objet, que ce soit pour la création, la modification ou la suppression d’une instance de modèle.
+                            </p>
+
+                            <p>
+                                Par exemple, le TripController contient plusieurs méthodes, dont :
+                            </p>
+
+                            <ul>
+                                <li>
+                                    createFlight: lorsque un administrateur souhaite créer un nouveau vol, il remplit le formulaire affiché dans la Vue <code>AdminMenu</code> et soumet la requête. Cette action appelle ensuite la méthode <code>createFlight</code> du contrôleur, qui instancie une nouvelle instance de la classe (modele) <code>Flight</code>.
+                                </li>
+                                <li>
+                                    searchTrips: permet au client de rechercher toutes les instances de la classe <code>Trip</code> et de les transmettre à la méthode <code>DisplaySearchTrips</code> du menu client pour afficher tous les voyages disponibles.
+                                </li>
+                            </ul>
+
+                            <p>
+                                Ainsi, on voit que les contrôleurs agissent toujours comme un lien entre l’interface utilisateur et les modèles/classes.
+                            </p>
+
+                            <p>
+                                Certains contrôleurs sont réservés aux administrateurs, comme le CompanyController, afin de refléter le fait que les clients ne peuvent pas modifier ou interagir directement avec une compagnie. Seuls les administrateurs peuvent appeler des méthodes qui modifient le modèle <code>Company</code>.
+                            </p>
                         </ul>
                     </li>
                     <li>
-                        <strong style="color: #555;">Vue</strong>
+                        <strong style="color: #555;">Modele</strong>
                         <ul>
-                            <li><strong>Actuel :</strong> Interaction via la console avec des entrées et sorties
-                                basiques (<strong>Scanner</strong>). Les utilisateurs peuvent soumettre des requêtes ou
-                                consulter des listes filtrées.</li>
-                            <li><strong>À venir :</strong> Une interface plus moderne pourrait être envisagée, qu'elle
-                                soit graphique (web avec React.js ou Vue.js) ou mobile (Flutter).</li>
+                            Les modèles correspondent principalement aux entités identifiées dans le modèle du domaine, avec quelques ajustements mineurs. 
+                            Par exemple, nous avons ajouté des classes parentes pour permettre l’héritage d’attributs communs à plusieurs classes enfants. 
+                            Ces classes parentes n’étaient pas particulièrement utilisées dans le modèle de domaine, car nous nous intéressions moins aux 
+                            attributs concrets du code. Cependant, dans le diagramme de classes, certains identifiants, attributs partagés ou contraintes logiques comme les sièges 
+                            qu’il faut pouvoir réserver, nous ont obligés à créer des classes spécifiques afin de gérer ces cas.
                         </ul>
                     </li>
                 </ol>
+
+                <h3>Diagrammes de séquence ou de collaboration</h3>
+
+            <p>
+                Nous reprenons les 16 scénarios identifiés dans les diagrammes de séquence système, mais cette fois-ci nous les détaillons davantage en représentant précisément tout le cheminement qui se produit lorsqu’un utilisateur accomplit un cas d’utilisation de l’application, depuis l’interface jusqu’au contrôleur, puis vers le modèle et la base de données.
+            </p>
+
+            <p>
+                Dans nos diagrammes, nous utilisons cinq types d’entités :
+            </p>
+
+            <ul>
+                <li>Le personnage représente l’acteur (client ou administrateur). On utilise le terme <em>Actor</em> lorsqu’il s’agit d’un user quelconque , car <em>User</em> est réservé à la classe <code>User</code> du modèle.</li>
+                <li>La ligne verticale reliée à un cercle correspond à l’interface Menu (Vue).</li>
+                <li>Le cercle avec une flèche sur le haut représente le Contrôleur.</li>
+                <li>Le carré correspond à un modèle / une classe.</li>
+                <li>Le cercle posé sur une ligne horizontale représente la base de données.</li>
+            </ul>
+
+            <p>
+                Dans ces diagrammes, le scénario commence toujours par une interaction de l’utilisateur avec l’interface. L’interface communique ensuite avec le contrôleur, qui effectue les traitements nécessaires et interagit avec les modèles et la base de données afin d’appliquer les changements demandés. Le système retourne ensuite un feedback visuel à l’utilisateur en envoyant un message de confirmation ou de résultat à l’interface, qui l’affiche à l’acteur.
+            </p>
+
+            <p>
+                Lorsqu’une méthode est appelée, elle appartient toujours à l’entité qui reçoit la flèche. Par exemple, dans une interaction du type :
+            </p>
+
+            <p>
+                <code>1 ---- changer() ----> 2</code>
+            </p>
+
+            <p>
+                cela signifie que c’est l’entité <code>2</code> qui contient et exécute la méthode <code>changer()</code>.
+            </p>
+
+            <h3>Diagramme de paquets</h3>
+
+            <p>
+                Pour ce diagramme, l’objectif principal est de regrouper les différentes classes en paquets cohérents, un peu comme si nous concevions une bibliothèque de modules. Nous avons donc organisé l’application selon les trois grandes couches de l’architecture MVC : Vue (Menu), Contrôleur et Modèle.
+            </p>
+
+            <p>
+                Du côté de la <strong>Vue (Menu)</strong>, on distingue deux grands sous-paquets :
+            </p>
+            <ul>
+                <li><em>Login</em> : regroupe tout ce qui est à l’extérieur de l’application principale, comme la création de compte et la page d’accueil.</li>
+                <li><em>UserMenu</em> : contient toutes les pages internes de l’application, telles que la recherche de voyages, la création, modification et suppression d’entités, la réservation et le paiement.</li>
+            </ul>
+
+            <p>
+                Du côté des <strong>Contrôleurs</strong>, nous avons séparé la logique selon les responsabilités principales :
+            </p>
+            <ul>
+                <li><em>SystemController</em> : regroupe toute la logique liée au compte utilisateur (création, connexion, déconnexion, suppression, etc.).</li>
+                <li><em>TripController</em> : contient la logique principale liée aux voyages, incluant les fonctionnalités administratives et la recherche de voyages pour les clients.</li>
+                <li><em>ReservationController</em> : gère la réservation, le paiement, la confirmation et la logique liée à l’occupation des sièges.</li>
+            </ul>
+
+            <p>
+                Pour la partie <strong>Modèle</strong>, nous avons structuré les paquets en suivant les classes du domaine. Les relations d’héritage sont regroupées ensemble, et certaines classes très spécifiques, comme <em>Section</em> et <em>Seat</em>, ont été rassemblées dans un même paquet afin de simplifier l’organisation globale.
+            </p>
+
+            <p>
+                Notre découpage en paquets a été conçu afin de regrouper les classes et concepts fortement liés ou participant à un même cas d’utilisation.
+            </p>
+
+            <h3>Contraintes OCL</h3>
+            <p>
+                Des commentaires de justification ont été ajoutés à la fin de certaines contraintes OCL lorsque nous avons jugé que certains aspects nécessitaient des précisions supplémentaires.
+            </p>
             </section>
 
         </div>
