@@ -24,7 +24,7 @@
       ><path d="M-7 -7 L1008 -7 L1008 390 L-7 390 L-7 -7 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath7"
-      ><path d="M97 23 L97 38 L38 38 L38 23 ZM117 264 L117 279 L38 279 L38 264 ZM-7 -7 L-7 390 L1008 390 L1008 -7 Z"
+      ><path d="M159 23 L159 38 L38 38 L38 23 ZM179 264 L179 279 L38 279 L38 264 ZM-7 -7 L-7 390 L1008 390 L1008 -7 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath8"
       ><path d="M0 0 L0 18 L23 18 L23 0 Z"
@@ -36,7 +36,7 @@
       ><path d="M-7 -7 L1008 -7 L1008 131 L-7 131 L-7 -7 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath11"
-      ><path d="M0 0 L0 15 L100 15 L100 0 Z"
+      ><path d="M0 0 L0 15 L162 15 L162 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath12"
       ><path d="M0 0 L0 4 L997 4 L997 0 Z"
@@ -45,7 +45,7 @@
       ><path d="M-7 -7 L1008 -7 L1008 252 L-7 252 L-7 -7 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath14"
-      ><path d="M0 0 L0 15 L80 15 L80 0 Z"
+      ><path d="M0 0 L0 15 L142 15 L142 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath15"
       ><path d="M-52 -15 L104 -15 L104 30 L-52 30 L-52 -15 Z"
@@ -81,7 +81,7 @@
       ><path d="M0 0 L134 0 L134 124 L0 124 L0 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath26"
-      ><path d="M0 0 L0 124 L128 124 L128 120 L134 120 L134 68 L81 68 L81 53 L134 53 L134 0 Z"
+      ><path d="M0 0 L0 124 L134 124 L134 68 L81 68 L81 53 L134 53 L134 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath27"
       ><path d="M202 34 L202 49 L140 49 L140 34 ZM0 0 L0 104 L346 104 L346 0 Z"
@@ -180,24 +180,24 @@
     ><text x="5" xml:space="preserve" y="12" clip-path="url(#clipPath8)" stroke="none"
       >alt</text
     ></g
-    ><g font-size="11px" transform="translate(870,240)" fill-opacity="1" fill="rgb(122,207,245)" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="rgb(122,207,245)" stroke-opacity="1"
+    ><g font-size="11px" transform="translate(870,257)" fill-opacity="1" fill="rgb(122,207,245)" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="rgb(122,207,245)" stroke-opacity="1"
     ><rect x="0" width="8" height="12" y="0" clip-path="url(#clipPath9)" stroke="none"
     /></g
-    ><g stroke-linecap="butt" font-size="11px" transform="translate(870,240)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke-linejoin="round" stroke="black" stroke-opacity="1" stroke-miterlimit="0"
+    ><g stroke-linecap="butt" font-size="11px" transform="translate(870,257)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke-linejoin="round" stroke="black" stroke-opacity="1" stroke-miterlimit="0"
     ><rect fill="none" x="0" width="8" height="12" y="0" clip-path="url(#clipPath9)"
     /></g
     ><g font-size="11px" transform="translate(30,464)" fill-opacity="1" fill="white" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="white" stroke-opacity="1"
-    ><rect x="9" width="81" height="17" y="-1" clip-path="url(#clipPath11)" stroke="none"
+    ><rect x="9" width="143" height="17" y="-1" clip-path="url(#clipPath11)" stroke="none"
       /><text fill="black" x="10" xml:space="preserve" y="12" clip-path="url(#clipPath11)" stroke="none"
-      >[Trip Not Empty]</text
+      >[Trip Reservation Not Empty]</text
     ></g
     ><g fill-opacity="1" text-rendering="geometricPrecision" stroke="black" stroke-linecap="butt" transform="translate(2,218)" stroke-miterlimit="0" stroke-opacity="1" fill="black" stroke-dasharray="5,2" font-family="sans-serif" stroke-linejoin="bevel" font-size="11px" image-rendering="optimizeQuality"
     ><line y2="240" fill="none" x1="0" clip-path="url(#clipPath13)" x2="996" y1="240"
     /></g
     ><g font-size="11px" transform="translate(30,223)" fill-opacity="1" fill="white" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="white" stroke-opacity="1"
-    ><rect x="9" width="61" height="17" y="-1" clip-path="url(#clipPath14)" stroke="none"
+    ><rect x="9" width="123" height="17" y="-1" clip-path="url(#clipPath14)" stroke="none"
       /><text fill="black" x="10" xml:space="preserve" y="12" clip-path="url(#clipPath14)" stroke="none"
-      >[Trip Empty]</text
+      >[Trip Reservation Empty]</text
     ></g
     ><g font-size="11px" transform="translate(124,37)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="10" xml:space="preserve" y="12" clip-path="url(#clipPath15)" stroke="none"
@@ -225,7 +225,7 @@
       /><polygon points=" 292 50 280 44 280 56" clip-path="url(#clipPath22)" stroke="none"
       /><polygon fill="none" points=" 292 50 280 44 280 56" clip-path="url(#clipPath22)"
     /></g
-    ><g stroke-linecap="butt" font-size="11px" transform="translate(617,190)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke-linejoin="round" stroke="black" stroke-opacity="1"
+    ><g stroke-linecap="butt" font-size="11px" transform="translate(617,207)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke-linejoin="round" stroke="black" stroke-opacity="1"
     ><line y2="50" fill="none" x1="50" clip-path="url(#clipPath24)" x2="253" y1="50"
       /><polygon points=" 253 50 241 44 241 56" clip-path="url(#clipPath24)" stroke="none"
       /><polygon fill="none" points=" 253 50 241 44 241 56" clip-path="url(#clipPath24)"
@@ -282,7 +282,7 @@
       /><text fill="black" x="10" xml:space="preserve" y="12" clip-path="url(#clipPath33)" stroke="none"
       >checkReservation(Trip)</text
     ></g
-    ><g font-size="11px" transform="translate(745,217)" fill-opacity="1" fill="white" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="white" stroke-opacity="1"
+    ><g font-size="11px" transform="translate(745,234)" fill-opacity="1" fill="white" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="white" stroke-opacity="1"
     ><rect x="0" width="74" height="15" y="0" clip-path="url(#clipPath34)" stroke="none"
       /><text fill="black" x="10" xml:space="preserve" y="12" clip-path="url(#clipPath34)" stroke="none"
       >Delete Trip</text
@@ -299,7 +299,7 @@
     ></g
     ><g font-size="8px" fill-opacity="1" fill="rgb(120,120,120)" text-rendering="geometricPrecision" image-rendering="optimizeQuality" stroke="rgb(120,120,120)" stroke-opacity="1"
     ><text x="0" xml:space="preserve" y="10" stroke="none"
-      >Visual Paradigm Standard(Trung(University of Montreal))</text
+      >Visual Paradigm Standard(dawso(University of Montreal))</text
     ></g
   ></g
 ></svg
