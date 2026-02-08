@@ -1107,7 +1107,11 @@
                     unitaire et l'intégration de nouvelles fonctionnalités.
                     La couche Modèle garantit une gestion efficace des données complexes, la couche Vue permet une
                     personnalisation et une amélioration continue de l'interface utilisateur, et la couche Contrôleur
-                    assure une interaction cohérente entre ces deux aspects.Voici comment cela fonctionne dans notre Système de Réservation de Voyages:
+                    assure une interaction cohérente entre ces deux aspects. Même si notre diagramme de classes peut 
+                    sembler fortement couplé au premier abord, la grande majorité des relations provient soit des liens imposés 
+                    par l’architecture MVC (entre la Vue, le Contrôleur et le Modèle), soit de relations d’héritage.Nous avons 
+                    cherché à réduire au maximum le couplage entre les classes et à augmenter leur cohésion.
+                    Voici comment cela fonctionne dans notre Système de Réservation de Voyages:
                 </p>
                 <ol>
                     <li>
@@ -1118,13 +1122,13 @@
                             </p>
 
                             <p>
-                                <strong>Menu de login :</strong> inclut un formulaire de connexion et propose également la création d’un compte pour les nouveaux utilisateurs.
+                                Menu de login: inclut un formulaire de connexion et propose également la création d’un compte pour les nouveaux utilisateurs.
                                 <br>
-                                <strong>Menu Client :</strong> cette classe gère tous les affichages accessibles aux clients, tels que la recherche de voyages, la modification du profil, la réservation, et d’autres fonctionnalités liées à leur compte.
+                                Menu Client: cette classe gère tous les affichages accessibles aux clients, tels que la recherche de voyages, la modification du profil, la réservation, et d’autres fonctionnalités liées à leur compte.
                                 <br>
-                                <strong>Menu Admin :</strong> accessible uniquement aux administrateurs, cette classe dispose de nombreuses méthodes pour gérer l’affichage et permettre la création, la modification et la suppression de voyages, de compagnies, de véhicules de transport et d’emplacements de gares, stations ou ports.
+                                Menu Admin: accessible uniquement aux administrateurs, cette classe dispose de nombreuses méthodes pour gérer l’affichage et permettre la création, la modification et la suppression de voyages, de compagnies, de véhicules de transport et d’emplacements de gares, stations ou ports.
                                 <br>
-                                <strong>Menu de paiement :</strong> cette classe s’occupe de gérer l’affichage de la page de paiement pour les réservations, ainsi que l’affichage de la confirmation après la transaction.
+                                Menu de paiement: cette classe s’occupe de gérer l’affichage de la page de paiement pour les réservations, ainsi que l’affichage de la confirmation après la transaction.
                             </p>
                         </ul>
                     </li>
