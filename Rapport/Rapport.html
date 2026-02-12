@@ -1031,6 +1031,11 @@
                 </div>
 
                 <div class="activity">
+                    <h4>Vérifier les vols/trajets/itinéraires</h4>
+                    <img class="activity-diagram" src="images/VerifyTripSystem.svg" alt="image">
+                </div>
+
+                <div class="activity">
                     <h4>Création de voyage</h4>
                     <img class="activity-diagram" src="images/TripCreateSystem.svg" alt="image">
                 </div>
@@ -1054,6 +1059,29 @@
                 </div>
 
                 <h3 class="subsection-title" id="diagram-seq">Diagrammes de séquence ou de collaboration</h3>
+
+                
+                <div class="activity">
+                    <h4>Faire un paiement (Responsable: Dawson Zhang)</h4>
+                    <img class="activity-diagram" src="images/Payment.svg" alt="image">
+                </div>
+
+                <div class="activity">
+                    <h4>Réserver un voyage (Responsable: Tien Tran)</h4>
+                    <img class="activity-diagram" src="images/ReserveTrip.svg" alt="image">
+                </div>
+
+                <div class="activity">
+                    <h4>Vérifier les vols/trajets/itinéraires (Responsable: Trung Nguyen)</h4>
+                    <img class="activity-diagram" src="images/VerifyTrip.svg" alt="image">
+                </div>
+
+                <p style="color:red">
+                    Nous avons remarqué plus tard que le travail ne requérait que les trois diagrammes indiqués (vérifier les vols/lignes/itinéraires, réserver un siège et payer un siège).
+                    Nous avions toutefois implémenté tous les diagrammes de séquence que nous avions identifiés sous forme de diagrammes de collaboration et, puisque nous les avions déjà réalisés, nous les 
+                    avons joints ci-dessous. Vous pouvez les ignorer s’ils ne sont pas nécessaires.
+                </p>
+
                 <div class="activity">
                     <h4>Création de compte</h4>
                     <img class="activity-diagram" src="images/AccountCreation.svg" alt="image">
@@ -1110,16 +1138,6 @@
                 </div>
 
                 <div class="activity">
-                    <h4>Faire un paiement</h4>
-                    <img class="activity-diagram" src="images/Payment.svg" alt="image">
-                </div>
-
-                <div class="activity">
-                    <h4>Réserver un voyage</h4>
-                    <img class="activity-diagram" src="images/ReserveTrip.svg" alt="image">
-                </div>
-
-                <div class="activity">
                     <h4>Création de voyage</h4>
                     <img class="activity-diagram" src="images/TripCreate.svg" alt="image">
                 </div>
@@ -1141,14 +1159,14 @@
                 </div>
 
                 <h3 class="subsection-title" id="contraintes">Contraintes OCL</h3>
-                <a href="../OCLcontraints_dev1_3911.pdf">Open the PDF</a>
+                <a href="../Design/OCLcontraints_dev1_3911.pdf">Open the PDF</a>
 
 
                 <h3 class="subsection-title" id="justifications">Justifications</h3>
                 <h3>Diagramme de Modèle conceptuel du domaine</h3>
 
                 <p>
-                    Pour ce diagramme, nous avons identifié les trois types de voyages principaux (vol, naval, ferroviaire), chacun héritant ainsi de la classe voyage parent car ce sont des types de voyages. (<strong>Trip, Flight, Cruise, Route</strong>)
+                    Pour ce diagramme, nous avons identifié les trois types de voyages principaux (vol, naval, ferroviaire), chacun héritant ainsi de la classe voyage parent, car ce sont des types de voyages. (<strong>Trip, Flight, Cruise, Route</strong>)
                 </p>
 
                 <p>
@@ -1178,7 +1196,7 @@
                 </p>
 
                 <p>
-                    Nous avons identifié 16 scénarios principaux, répartis en trois grandes catégories : gestion de compte, volet administratif et volet client.
+                    Nous avons identifié 17 scénarios principaux, répartis en trois grandes catégories : gestion de compte, volet administratif et volet client.
                 </p>
 
                 <p>
@@ -1213,6 +1231,7 @@
                 <ul>
                     <li>Réserver un voyage</li>
                     <li>Effectuer un paiement</li>
+                    <li>Vérifier un vols/trajets/itinéraires</li>
                 </ul>
 
 
@@ -1280,7 +1299,7 @@
                         </ul>
                     </li>
                     <li>
-                        <strong style="color: #555;">Modele</strong>
+                        <strong style="color: #555;">Modèle</strong>
                         <ul>
                             Les modèles correspondent principalement aux entités identifiées dans le modèle du domaine, avec quelques ajustements mineurs. 
                             Par exemple, nous avons ajouté des classes parentes pour permettre l’héritage d’attributs communs à plusieurs classes enfants. 
@@ -1291,10 +1310,12 @@
                     </li>
                 </ol>
 
+                <p>Note : dans le diagramme de classe, les liens pour lesquels aucune cardinalité n’est indiquée sont supposés être des relations 1:1.</p>
+
                 <h3>Diagrammes de séquence ou de collaboration</h3>
 
             <p>
-                Nous reprenons les 16 scénarios identifiés dans les diagrammes de séquence système, mais cette fois-ci nous les détaillons davantage en représentant précisément tout le cheminement qui se produit lorsqu’un utilisateur accomplit un cas d’utilisation de l’application, depuis l’interface jusqu’au contrôleur, puis vers le modèle et la base de données.
+                Nous reprenons les 17 scénarios identifiés dans les diagrammes de séquence système, mais cette fois-ci nous les détaillons davantage en représentant précisément tout le cheminement qui se produit lorsqu’un utilisateur accomplit un cas d’utilisation de l’application, depuis l’interface jusqu’au contrôleur, puis vers le modèle et la base de données.
             </p>
 
             <p>
