@@ -2,7 +2,12 @@ package com.example.demo.account;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.account.models.Client;
 import com.example.demo.account.models.User;
+import com.example.demo.account.schema.CreateClientRequest;
+import com.example.demo.account.schema.UserResponse;
+
+import jakarta.transaction.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,10 +20,6 @@ public class UserService {
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-    }
-
-    public <T extends User> T saveUser(T user) {
-        return userRepository.save(user);
     }
 
     public List<User> getAllUsers() {
@@ -40,5 +41,12 @@ public class UserService {
                 .filter(user -> user.getEmail().equals(email))
                 .findFirst()
                 .orElse(null);
+    }
+
+    @Transactional
+    public UserResponse createClient(CreateClientRequest request) {
+        Client client = new Client(request);
+        client = userRepository.save(client);
+        return new UserResponse(client);
     }
 }

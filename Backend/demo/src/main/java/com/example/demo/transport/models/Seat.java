@@ -1,38 +1,20 @@
 package com.example.demo.transport.models;
 
+import com.example.demo.entity.AbstractEntity;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 @Entity
-public class Seat {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long seatId;
+@Setter
+@Getter
+@NoArgsConstructor
+public class Seat extends AbstractEntity{
     private boolean isOccupied;
 
     @ManyToOne
     @JoinColumn(name = "transport_id")
     private Transport transport;
-
-    public Seat() {}
-    
-
-    public Long getSeatId() {
-        return seatId;
-    }
-
-    public boolean isOccupied() {
-        return isOccupied;
-    }
-
-    public void setOccupied(boolean isOccupied) {
-        this.isOccupied = isOccupied;
-    }
-
-    public Transport getTransport() {
-        return transport;
-    }
-
-    public void setTransport(Transport transport) {
-        this.transport = transport;
-    }
 }

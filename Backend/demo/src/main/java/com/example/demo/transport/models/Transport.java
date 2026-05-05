@@ -3,15 +3,19 @@ package com.example.demo.transport.models;
 import java.util.List;
 
 import com.example.demo.company.models.Company;
+import com.example.demo.entity.AbstractEntity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Transport {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long transportId;
+@Getter
+@Setter
+@NoArgsConstructor
+public abstract class Transport extends AbstractEntity {
 
     @ManyToOne
     @JoinColumn(name = "company_id")
@@ -20,25 +24,4 @@ public abstract class Transport {
     @OneToMany(mappedBy = "transport", cascade = CascadeType.ALL)
     private List<Seat> seats;
 
-    public Transport() {}
-
-    public Long getTransportId() {
-        return transportId;
-    }
-
-    public Company getCompany() {
-        return company;
-    }
-
-    public void setCompany(Company company) {
-        this.company = company;
-    }
-
-    public List<Seat> getSeats() {
-        return seats;
-    }
-
-    public void setSeats(List<Seat> seats) {
-        this.seats = seats;
-    }
 }

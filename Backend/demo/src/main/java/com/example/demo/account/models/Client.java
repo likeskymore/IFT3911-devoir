@@ -2,6 +2,7 @@ package com.example.demo.account.models;
 
 import java.util.List;
 
+import com.example.demo.account.schema.CreateClientRequest;
 import com.example.demo.payment.models.Payment;
 import com.example.demo.reservation.models.Reservation;
 import jakarta.persistence.*;
@@ -16,17 +17,19 @@ public class Client extends User {
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     private List<Payment> payments;
     
-    private String passportNumber;
 
     public Client() {}
 
-    public Client(String username, String firstName, String lastName, String email, String password, String passportNumber) {
+    public Client(CreateClientRequest data) {
+        super(data);
+    }
+
+    public Client(String username, String firstName, String lastName, String email, String password) {
         super.setUsername(username);
         super.setFirstName(firstName);
         super.setLastName(lastName);
         super.setEmail(email);
         super.setPassword(password);
-        this.passportNumber = passportNumber;
     }
 
 
@@ -46,12 +49,5 @@ public class Client extends User {
         this.payments = payments;
     }
 
-    public String getPassportNumber() {
-        return passportNumber;
-    }
-
-    public void setPassportNumber(String passportNumber) {
-        this.passportNumber = passportNumber;
-    }
     
 }
