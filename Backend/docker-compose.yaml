@@ -1,0 +1,52 @@
+services:
+  api:
+    build:
+      context: ./demo         
+      dockerfile: ../docker/Dockerfile.local
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./demo:/app
+      - ~/.m2:/root/.m2
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    networks:
+      - my-network
+
+  redis:
+    image: redis:7-alpine
+    restart: "no"
+    ports:
+      - 6379:6379
+    environment:
+      REDIS_PASSWORD: local_redis
+      REDIS_DISABLE_COMMANDS: FLUSHDB,FLUSHALL
+    volumes:
+      - redis_data:/bitnami/redis/data
+    networks:
+      - my-network
+    platform: linux/amd64
+
+  db:
+    image: postgres:17.2
+    restart: "no"
+    shm_size: 128mb
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: local_db
+    networks:
+      - my-network
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+networks:
+  my-network:
+    driver: bridge
+
+volumes:
+  pgdata:
+  redis_data:
+    driver: local
