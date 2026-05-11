@@ -5,11 +5,10 @@ services:
       dockerfile: ../docker/Dockerfile.local
     ports:
       - "8080:8080"
+      - "8000:8000"
     volumes:
       - ./demo:/app
       - ~/.m2:/root/.m2
-    environment:
-      SPRING_PROFILES_ACTIVE: docker
     networks:
       - my-network
 
@@ -42,6 +41,23 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
+  mailpit:
+    image: axllent/mailpit
+    container_name: mailpit
+    restart: unless-stopped
+    volumes:
+      - ./data:/data
+    ports:
+      - 8025:8025
+      - 1025:1025
+    environment:
+      MP_MAX_MESSAGES: 5000
+      MP_DATABASE: /data/mailpit.dbA
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+    networks:
+      - my-network
+
 networks:
   my-network:
     driver: bridge
@@ -50,3 +66,4 @@ volumes:
   pgdata:
   redis_data:
     driver: local
+  

@@ -14,8 +14,7 @@ public class Admin extends User {
 
     public Admin() {}
 
-    public Admin(String username, String firstName, String lastName, String email, String password) {
-        super.setUsername(username);
+    public Admin( String firstName, String lastName, String email, String password) {
         super.setFirstName(firstName);
         super.setLastName(lastName);
         super.setEmail(email);

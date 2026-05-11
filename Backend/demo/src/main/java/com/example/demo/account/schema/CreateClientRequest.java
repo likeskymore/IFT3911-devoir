@@ -27,9 +27,6 @@ import org.hibernate.validator.constraints.Length;
 @ClientUtil
 public class CreateClientRequest {
 
-    @NotNull
-    private String username;
-
     @Email
     @NotNull
     @Unique(

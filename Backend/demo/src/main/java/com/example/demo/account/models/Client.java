@@ -24,8 +24,7 @@ public class Client extends User {
         super(data);
     }
 
-    public Client(String username, String firstName, String lastName, String email, String password) {
-        super.setUsername(username);
+    public Client(String firstName, String lastName, String email, String password) {
         super.setFirstName(firstName);
         super.setLastName(lastName);
         super.setEmail(email);

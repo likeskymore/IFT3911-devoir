@@ -1,0 +1,16 @@
+package com.example.demo.util.exception;
+
+import java.util.Map;
+import lombok.Builder;
+import lombok.Getter;
+
+@Getter
+@Builder
+public class ApiException extends RuntimeException {
+  private String message;
+
+  @Builder.Default
+  private int status = 400;
+  
+  private Map<String, String> errors;
+}
