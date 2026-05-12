@@ -1,14 +1,19 @@
-package com.example.demo.account.models;
+package com.example.demo.users.models;
 
 import java.util.List;
 
-import com.example.demo.account.schema.CreateClientRequest;
 import com.example.demo.payment.models.Payment;
 import com.example.demo.reservation.models.Reservation;
+import com.example.demo.users.schema.CreateClientRequest;
+
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 
 @Entity
+@Getter
+@NoArgsConstructor
 public class Client extends User {
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
@@ -16,9 +21,6 @@ public class Client extends User {
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     private List<Payment> payments;
-    
-
-    public Client() {}
 
     public Client(CreateClientRequest data) {
         super(data);

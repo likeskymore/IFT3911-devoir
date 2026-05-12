@@ -1,7 +1,7 @@
-package com.example.demo.account.schema;
+package com.example.demo.users.schema;
 
-import com.example.demo.account.models.Role;
-import com.example.demo.account.models.User;
+import com.example.demo.users.models.Role;
+import com.example.demo.users.models.User;
 
 import lombok.Data;
 

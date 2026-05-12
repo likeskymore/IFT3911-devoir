@@ -6,8 +6,8 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import com.example.demo.account.models.User;
-import com.example.demo.account.services.UserService;
+import com.example.demo.users.models.User;
+import com.example.demo.users.services.UserService;
 
 import java.util.Date;
 

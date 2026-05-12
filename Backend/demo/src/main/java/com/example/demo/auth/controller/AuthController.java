@@ -1,8 +1,8 @@
 package com.example.demo.auth.controller;
 
-import com.example.demo.account.schema.UserResponse;
 import com.example.demo.auth.schema.LoginRequest;
 import com.example.demo.auth.services.AuthService;
+import com.example.demo.users.schema.UserResponse;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

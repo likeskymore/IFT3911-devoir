@@ -1,6 +1,6 @@
 package com.example.demo.auth;
 
-import com.example.demo.account.models.User;
+import com.example.demo.users.models.User;
 import com.example.demo.util.exception.ApiException;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;

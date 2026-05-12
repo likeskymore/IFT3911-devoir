@@ -1,8 +1,8 @@
 package com.example.demo.payment.models;
 
-import com.example.demo.account.models.Client;
 import com.example.demo.entity.AbstractEntity;
 import com.example.demo.reservation.models.Reservation;
+import com.example.demo.users.models.Client;
 
 import jakarta.persistence.*;
 import lombok.Getter;

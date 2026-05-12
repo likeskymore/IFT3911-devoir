@@ -1,12 +1,13 @@
-package com.example.demo.account.jobs.handlers;
+package com.example.demo.users.jobs.handlers;
 
 import com.example.demo.config.ApplicationProperties;
 import com.example.demo.email.EmailService;
-import com.example.demo.account.models.User;
-import com.example.demo.account.models.VerificationCode;
-import com.example.demo.account.jobs.SendWelcomeEmailJob;
-import com.example.demo.account.repository.UserRepository;
-import com.example.demo.account.repository.VerificationCodeRepository;
+import com.example.demo.users.jobs.SendWelcomeEmailJob;
+import com.example.demo.users.models.User;
+import com.example.demo.users.models.VerificationCode;
+import com.example.demo.users.repository.UserRepository;
+import com.example.demo.users.repository.VerificationCodeRepository;
+
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

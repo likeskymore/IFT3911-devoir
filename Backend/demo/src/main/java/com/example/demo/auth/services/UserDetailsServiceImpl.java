@@ -5,8 +5,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.account.models.User;
-import com.example.demo.account.repository.UserRepository;
+import com.example.demo.users.models.User;
+import com.example.demo.users.repository.UserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService{

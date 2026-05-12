@@ -1,17 +1,18 @@
-package com.example.demo.account.services;
+package com.example.demo.users.services;
 
 import org.jobrunr.scheduling.BackgroundJobRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
-import com.example.demo.account.jobs.SendWelcomeEmailJob;
-import com.example.demo.account.models.Client;
-import com.example.demo.account.models.User;
-import com.example.demo.account.models.VerificationCode;
-import com.example.demo.account.repository.UserRepository;
-import com.example.demo.account.repository.VerificationCodeRepository;
-import com.example.demo.account.schema.CreateClientRequest;
-import com.example.demo.account.schema.UserResponse;
+import com.example.demo.users.jobs.SendWelcomeEmailJob;
+import com.example.demo.users.models.Client;
+import com.example.demo.users.models.User;
+import com.example.demo.users.models.VerificationCode;
+import com.example.demo.users.repository.UserRepository;
+import com.example.demo.users.repository.VerificationCodeRepository;
+import com.example.demo.users.schema.CreateClientRequest;
+import com.example.demo.users.schema.UserResponse;
+import com.example.demo.util.exception.ApiException;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -67,5 +68,14 @@ public class UserService {
         SendWelcomeEmailJob sendWelcomeEmailJob = new SendWelcomeEmailJob(user.getId());
         BackgroundJobRequest.enqueue(sendWelcomeEmailJob);
         
+    }
+
+    @Transactional
+    public void verifyEmail(String code) {
+        VerificationCode verificationCode = verificationCodeRepository.findByCode(code)
+                .orElseThrow(() -> ApiException.builder().status(400).message("Invalid token").build());
+        User user = verificationCode.getUser();
+        user.setVerified(true);
+        userRepository.save(user);
     }
 }

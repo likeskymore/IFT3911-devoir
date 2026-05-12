@@ -1,4 +1,4 @@
-package com.example.demo.account.models;
+package com.example.demo.users.models;
 
 import java.util.Random;
 

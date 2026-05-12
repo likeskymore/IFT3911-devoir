@@ -1,11 +1,12 @@
-package com.example.demo.account.jobs;
+package com.example.demo.users.jobs;
 
-import com.example.demo.account.jobs.handlers.SendWelcomeEmailJobHandler;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.jobrunr.jobs.lambdas.JobRequest;
 import org.jobrunr.jobs.lambdas.JobRequestHandler;
+
+import com.example.demo.users.jobs.handlers.SendWelcomeEmailJobHandler;
 
 @Getter
 @AllArgsConstructor

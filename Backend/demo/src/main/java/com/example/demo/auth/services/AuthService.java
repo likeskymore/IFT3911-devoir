@@ -2,8 +2,9 @@ package com.example.demo.auth.services;
 
 import com.example.demo.auth.SecurityUtil;
 import com.example.demo.auth.schema.LoginRequest;
-import com.example.demo.account.models.User;
-import com.example.demo.account.schema.UserResponse;
+import com.example.demo.users.models.User;
+import com.example.demo.users.schema.UserResponse;
+
 // import com.example.demo.account.repository.UserRepository;
 // import com.example.demo.account.repository.VerificationCodeRepository;
 import jakarta.servlet.http.HttpServletRequest;

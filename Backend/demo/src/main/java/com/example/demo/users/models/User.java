@@ -1,4 +1,4 @@
-package com.example.demo.account.models;
+package com.example.demo.users.models;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -8,8 +8,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.example.demo.account.schema.CreateClientRequest;
 import com.example.demo.entity.AbstractEntity;
+import com.example.demo.users.schema.CreateClientRequest;
 import com.example.demo.util.ApplicationContextProvider;
 
 import jakarta.persistence.*;

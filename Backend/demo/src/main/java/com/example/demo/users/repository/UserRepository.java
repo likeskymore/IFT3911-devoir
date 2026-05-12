@@ -1,4 +1,4 @@
-package com.example.demo.account.repository;
+package com.example.demo.users.repository;
 
 import java.util.Optional;
 
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.account.models.User;
+import com.example.demo.users.models.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {

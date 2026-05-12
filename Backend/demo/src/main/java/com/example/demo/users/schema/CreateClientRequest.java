@@ -1,4 +1,4 @@
-package com.example.demo.account.schema;
+package com.example.demo.users.schema;
 
 import com.example.demo.util.ClientUtil;
 import com.example.demo.util.validators.PasswordMatch;

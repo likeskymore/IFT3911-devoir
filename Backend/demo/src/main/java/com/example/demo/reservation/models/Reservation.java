@@ -2,11 +2,11 @@ package com.example.demo.reservation.models;
 
 import java.time.LocalTime;
 
-import com.example.demo.account.models.Client;
 import com.example.demo.entity.AbstractEntity;
 import com.example.demo.transport.models.Seat;
 import com.example.demo.transport.models.Transport;
 import com.example.demo.trip.models.Trip;
+import com.example.demo.users.models.Client;
 
 import jakarta.persistence.*;
 import lombok.Getter;
