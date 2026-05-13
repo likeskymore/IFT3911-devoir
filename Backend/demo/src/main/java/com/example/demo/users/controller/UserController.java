@@ -10,6 +10,8 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.example.demo.users.repository.VerificationCodeRepository;
 import com.example.demo.users.schema.CreateClientRequest;
+import com.example.demo.users.schema.ForgotPasswordRequest;
+import com.example.demo.users.schema.UpdateUserPasswordRequest;
 import com.example.demo.users.schema.UserResponse;
 import com.example.demo.users.services.UserService;
 
@@ -17,6 +19,7 @@ import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -42,11 +45,21 @@ public class UserController {
     }
 
     @GetMapping("/verify-email")
-    public RedirectView getMethodName(@RequestParam String token) {
+    public RedirectView verifyEmail(@RequestParam String token) {
         userService.verifyEmail(token);
         return new RedirectView(applicationProperties.getLoginPageUrl());
     }
-    
-    
+
+    @PostMapping("/forgot-password")
+    public ResponseEntity<Void> forgotPassword(@Valid @RequestBody ForgotPasswordRequest req) {
+        userService.forgotPassword(req.getEmail());
+        return ResponseEntity.ok().build();
+    }
+
+    @PatchMapping("/reset-password")
+    public ResponseEntity<Void> resetPassword(@Valid @RequestBody UpdateUserPasswordRequest requestDTO) {
+        userService.resetPassword(requestDTO);
+        return ResponseEntity.ok().build();
+    }
 
 }
