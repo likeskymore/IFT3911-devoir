@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.example.demo.entity.AbstractEntity;
 import com.example.demo.users.schema.CreateClientRequest;
+import com.example.demo.users.schema.UpdateUserRequest;
 import com.example.demo.util.ApplicationContextProvider;
 
 import jakarta.persistence.*;
@@ -50,6 +51,11 @@ public abstract class User extends AbstractEntity implements UserDetails {
         this.email = data.getEmail();
         this.password = passwordEncoder.encode(data.getPassword());
         this.role = Role.CLIENT;
+    }
+
+    public void update(UpdateUserRequest request) {
+        this.firstName = request.getFirstName();
+        this.lastName = request.getLastName();
     }
 
     public void updatePassword(String newPassword) {

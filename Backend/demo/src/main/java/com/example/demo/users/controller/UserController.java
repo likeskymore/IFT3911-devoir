@@ -12,12 +12,14 @@ import com.example.demo.users.repository.VerificationCodeRepository;
 import com.example.demo.users.schema.CreateClientRequest;
 import com.example.demo.users.schema.ForgotPasswordRequest;
 import com.example.demo.users.schema.UpdateUserPasswordRequest;
+import com.example.demo.users.schema.UpdateUserRequest;
 import com.example.demo.users.schema.UserResponse;
 import com.example.demo.users.services.UserService;
 
 import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -60,6 +62,19 @@ public class UserController {
     public ResponseEntity<Void> resetPassword(@Valid @RequestBody UpdateUserPasswordRequest requestDTO) {
         userService.resetPassword(requestDTO);
         return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<UserResponse> update(@Valid @RequestBody UpdateUserRequest request) {
+        UserResponse user = userService.update(request);
+        return ResponseEntity.ok(user);
+    }
+
+    @PatchMapping("/password")
+    public ResponseEntity<UserResponse> updatePassword(
+        @Valid @RequestBody UpdateUserPasswordRequest requestDTO) {
+        UserResponse user = userService.updatePassword(requestDTO);
+        return ResponseEntity.ok(user);
     }
 
 }
