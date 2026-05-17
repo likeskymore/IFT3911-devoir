@@ -2,10 +2,10 @@ FROM eclipse-temurin:21-jdk
 
 WORKDIR /app
 
-COPY mvnw .
-COPY .mvn/ .mvn
-COPY pom.xml .
-COPY src/ src/
+COPY Backend/demo/mvnw .
+COPY Backend/demo/.mvn .mvn
+COPY Backend/demo/pom.xml .
+COPY Backend/demo/src src
 
 RUN chmod +x mvnw
 

@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.view.RedirectView;
 
 import com.example.demo.users.repository.VerificationCodeRepository;
 import com.example.demo.users.schema.CreateClientRequest;
@@ -47,9 +46,13 @@ public class UserController {
     }
 
     @GetMapping("/verify-email")
-    public RedirectView verifyEmail(@RequestParam String token) {
+    public ResponseEntity<Void> verifyEmail(@RequestParam String token) {
         userService.verifyEmail(token);
-        return new RedirectView(applicationProperties.getLoginPageUrl());
+
+        return ResponseEntity
+            .status(302)
+            .header("Location", applicationProperties.getLoginPageUrl())
+            .build();
     }
 
     @PostMapping("/forgot-password")
